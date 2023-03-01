@@ -8,18 +8,25 @@
 
 <title>Game Play</title>
 
+{% endblock %}
+
+{% block content %}
+
 <div id="Mushroom-Question">
     <div id="message">
         <h1> You suck!</h1>
         <input id="okBtn" type="button" 
-        onclick="toggleVisability('Mushroom-Question')"
+        onclick="toggleVisibility('Mushroom-Question')"
         value="OK..." />
     </div>
 </div>
+<div>
+    <input id="okBtn" type="button" 
+onclick="toggleVisibility('Mushroom-Question')"
+value="HI..." />
+</div>
 
-{% endblock %}
-
-{% block content %}
+<script scr="/static/game_play/js/java.js"></script>
 
 
 
