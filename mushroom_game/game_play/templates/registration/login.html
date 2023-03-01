@@ -1,0 +1,42 @@
+{% extends "game_play/base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/game_play/style.css?{% now "U" %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login</title>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="login-box">
+  <h1>Login Here</h1>
+  <form action="" method="POST">
+    {% csrf_token %} 
+      <p>Username</p>
+      <input type="text" name="username" placeholder="Enter Username">
+      <p>Password</p>
+      <input type="password" name="password" placeholder="Enter Password">
+      <div class="pass-link">
+        <a href="#">Forgot Password</a> 
+      </div>
+      <input type="submit" name="submit" value="Login">
+      <div class="signup-link">
+        Don't have an account?
+      <a href="/subscription">
+        Join us
+      </a>
+      </div>
+    </form>
+    
+</div>
+
+
+
+
+
+{% endblock %}
+
+<!-- https://www.codingnepalweb.com/login-and-registration-form-in-html/ -->

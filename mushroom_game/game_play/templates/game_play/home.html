@@ -1,0 +1,19 @@
+{% extends "game_play/base.html" %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="/static/game_play/css/style.css?{% now "U" %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Home Page</title>
+
+{% endblock %}
+
+{% block content %}
+
+  <body>
+     <a href="/logout">Log out</a> <!-- make this a button --> <!--- this needs to redirect to welcome page -->
+  </body>
+
+  {% endblock %}

@@ -1,0 +1,26 @@
+{% extends "game_play/base.html" %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="/static/game_play/css/style.css?{% now "U" %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Game Play</title>
+
+<div id="Mushroom-Question">
+    <div id="message">
+        <h1> You suck!</h1>
+        <input id="okBtn" type="button" 
+        onclick="toggleVisability('Mushroom-Question')"
+        value="OK..." />
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+
+
+{% endblock %}

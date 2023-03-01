@@ -1,0 +1,25 @@
+{% extends "game_play/base.html" %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="/static/game_play/css/style.css?{% now "U" %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Welcome</title>
+
+{% endblock %}
+
+{% block content %}
+
+<div id="container">
+  <div class="column"> 
+    <h1>This game needs a better name</h1>
+    <img src="{% static 'game_play/images/mushroom_image.png' %}" class="image"/>
+    <h2>Eat mushrooms, don't die</h2>
+    <a href="/pro" class="button">Login</a> <!-- make this a button --> <!--- this needs to redirect to welcome page -->
+  </div>
+</div>
+
+{% endblock %}
+
