@@ -1,33 +1,45 @@
 {% extends "game_play/base.html" %}
 {% load static %}
 
-
 {% block head %}
-<link rel="stylesheet" href="/static/game_play/css/style.css?{% now "U" %}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/game_play/css/style.css?{% now "U" %}"></link>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+
+<script src="{% static '/game_play/js/crafty.js' %}?{% now "U" %}""></script>
+<script src="{% static '/game_play/js/script.js' %}?{% now "U" %}"></script>
+
 
 <title>Game Play</title>
+
 
 {% endblock %}
 
 {% block content %}
 
+
 <div id="Mushroom-Question">
-    <div id="message">
-        <h1> You suck!</h1>
-        <input id="okBtn" type="button" 
-        onclick="toggleVisibility('Mushroom-Question')"
-        value="OK..." />
+    <div class="message">
+        <h1>Mushroom Flashcard</h1>
+        <h2>There will be an image of a mushroom here</h2>
+        <p>[ ] and some options</p>
+        <p>[ ] of mushrooms that</p>
+        <p>[ ] are selectable here</p>
+        <input type="submit" name="submit" onclick="toggleVisibility('Mushroom-Question')" value="Submit">
+        <!--TASK: turn all submit buttons into the same type so there is only one CSS section for it-->
     </div>
 </div>
-<div>
+<div id="Greeting">
     <input id="okBtn" type="button" 
 onclick="toggleVisibility('Mushroom-Question')"
-value="HI..." />
+value="HI!" /> <!--Note: This button will be removedand the Mushroom-Questionflashcard will be triggered by game play at some point-->
+
+
+<div id="maze">
+    <script>
+        window.addEventListener('load', Game.start);
+    </script>
 </div>
-
-<script scr="/static/game_play/js/java.js"></script>
-
-
-
 {% endblock %}
+
+
+<!--SPRITES!!! Trees and shit!! https://opengameart.org/content/trees-mega-pack-cc-by-30-0 -->

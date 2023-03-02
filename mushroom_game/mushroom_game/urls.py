@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from game_play import urls as game_urls
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include(game_urls)),
