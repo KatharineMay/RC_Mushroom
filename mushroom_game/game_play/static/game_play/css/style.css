@@ -157,6 +157,7 @@ h2 {
   top: 50%;
   left: 50%;
   position: absolute;
+  z-index: 100;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
   padding: 20px 30px;
@@ -191,7 +192,8 @@ h2 {
   padding: 0px 0px;
 }
 
-#Maze{
-  justify-content: center;
-  align-items: center;
-}
+ #Game-Page {
+  text-align: center;
+ }
+
+ 

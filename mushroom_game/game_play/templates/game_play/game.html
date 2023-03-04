@@ -15,29 +15,31 @@
 {% endblock %}
 
 {% block content %}
-
-
-<div id="Mushroom-Question">
-    <div class="message">
-        <h1>Mushroom Flashcard</h1>
-        <h2>There will be an image of a mushroom here</h2>
-        <p>[ ] and some options</p>
-        <p>[ ] of mushrooms that</p>
-        <p>[ ] are selectable here</p>
-        <input type="submit" name="submit" onclick="toggleVisibility('Mushroom-Question')" value="Submit">
-        <!--TASK: turn all submit buttons into the same type so there is only one CSS section for it-->
-    </div>
-</div>
 <div id="Greeting">
     <input id="okBtn" type="button" 
-onclick="toggleVisibility('Mushroom-Question')"
-value="HI!" /> <!--Note: This button will be removedand the Mushroom-Questionflashcard will be triggered by game play at some point-->
+    onclick="toggleVisibility('Mushroom-Question')"
+    value="HI!" /> <!--Note: This button will be removedand the Mushroom-Questionflashcard will be triggered by game play at some point-->
+</div>
 
+<div id="Game-Page">
+    
 
-<div id="maze">
-    <script>
-        window.addEventListener('load', Game.start);
-    </script>
+    <div id="maze-Container">
+        <script>
+            window.addEventListener('load', Game.start);
+        </script>
+    </div>
+    <div id="Mushroom-Question">
+        <div class="message">
+            <h1>Mushroom Flashcard</h1>
+            <h2>There will be an image of a mushroom here</h2>
+            <p>[ ] and some options</p>
+            <p>[ ] of mushrooms that</p>
+            <p>[ ] are selectable here</p>
+            <input type="submit" name="submit" onclick="toggleVisibility('Mushroom-Question')" value="Submit">
+            <!--TASK: turn all submit buttons into the same type so there is only one CSS section for it-->
+        </div>
+    </div>
 </div>
 {% endblock %}
 
