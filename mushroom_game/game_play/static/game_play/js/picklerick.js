@@ -386,7 +386,7 @@ function Player(maze, c, _cellsize, onComplete, sprite = null) {
   function removeSprite(coord) {
     var offsetLeft = cellSize / 50;
     var offsetRight = cellSize / 25;
-    ctx.clearRect(
+    ctx.clearRect(  //remove this section of code and the pickle will remain for each move
       coord.x * cellSize + offsetLeft,
       coord.y * cellSize + offsetLeft,
       cellSize - offsetRight,

@@ -7,8 +7,16 @@
     - [ ] Populate background with trees and food
             - [x] if tree/food: change colour
             - [ ] if tree/food: add in sprite
+            - [ ] if the character
     - [ ] Create a movable character
+            - [x] add in general character with a change of colour
+            - [ ] add in sprite
+            - [ ] moves consistantly through the centre of the path
+            - [ ] make character continuously movable?
     - [ ] Create checkpoints (mushrooms) that will flag flashcard
+            - [ ] add mushroom locations in a colour chage
+            - [ ] add in sprite
+            - [ ] set it so that if the character interacts with the mushroom a flashcard is revealed 
     - [ ] Create sprites (death?) that:
         - [ ] move around autonomously
         - [ ] kill character
@@ -73,6 +81,7 @@ Game = {
                 mazeMap[y][x] = { //for each location in the grid a dictionary is generated where all properties are set to false
                     tree: false,
                     food: false,
+                    mushroom: false,
                     visited: false,
                 };
               }
@@ -265,7 +274,15 @@ Game = {
                         mazeMap[ny][nx].tree = true;
                     }
                 }
-            }        
+            }
+            
+            let mushrooms = [[2,5],[42,5],[2,32],[42,32]];
+
+            for (let j = 0; j < mushrooms.length; j++) {
+                mazeMap[mushrooms[j][1]][mushrooms[j][0]].mushroom = true; 
+            }
+
+            mazeMap[32][24].food = true;
         }
        
         function drawMaze() {
@@ -274,39 +291,18 @@ Game = {
                 for (var x = 0; x < Game.map_grid.width; x++){
                     var at_edge = x == 0 || x == Game.map_grid.width - 1 || y == 0 || y == Game.map_grid.height - 1;
     
-                    if (at_edge) {
-                        Crafty.e('2D, Canvas, Color')
-                            .attr({
-                            x: x * Game.map_grid.tile.width,
-                            y: y * Game.map_grid.tile.height,
-                            w: Game.map_grid.tile.width,
-                            h: Game.map_grid.tile.height
-                            })
-                            .color('rgb(20, 125, 40)');
-
-                            mazeMap[y][x].tree == true
-                    } else if (mazeMap[y][x].tree == true) {
-                        Crafty.e('2D, Canvas, Color')
-                            .attr({
-                            x: x * (Game.map_grid.tile.width),
-                            y: y * (Game.map_grid.tile.height),
-                            w: Game.map_grid.tile.width,
-                            h: Game.map_grid.tile.height
-                            })
-                            .color('rgb(20, 125, 40)');
+                    if (at_edge || mazeMap[y][x].tree == true) {
+                        Crafty.e('Tree').at(x,y);
+                        mazeMap[y][x].tree == true; //is this needed??
                     } else if (mazeMap[y][x].food == true) {
-                        Crafty.e('2D, Canvas, Color')
-                            .attr({
-                            x: x * (Game.map_grid.tile.width),
-                            y: y * (Game.map_grid.tile.height),
-                            w: Game.map_grid.tile.width,
-                            h: Game.map_grid.tile.height
-                            })
-                            .color('rgb(216, 162, 162)');
+                        Crafty.e('Food').at(x,y);
+                    } else if (mazeMap[y][x].mushroom == true) {
+                        Crafty.e('Mushroom').at(x,y);
                     }
                 }
-
             }
+
+            Crafty.e('PlayerCharacter').at(22, 32);
         }
         genMap();
         defineMaze();
