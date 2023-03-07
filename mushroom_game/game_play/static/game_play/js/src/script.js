@@ -14,7 +14,7 @@
             - [ ] moves consistantly through the centre of the path
             - [ ] make character continuously movable?
     - [ ] Create checkpoints (mushrooms) that will flag flashcard
-            - [ ] add mushroom locations in a colour chage
+            - [x] add mushroom locations in a colour chage
             - [ ] add in sprite
             - [ ] set it so that if the character interacts with the mushroom a flashcard is revealed 
     - [ ] Create sprites (death?) that:
@@ -73,6 +73,11 @@ Game = {
         Crafty.init(Game.width(), Game.height());
         Crafty.background('rgb(249, 223, 125');
 
+        Crafty.scene('Game');
+    }
+}
+
+        /*
         function genMap() {
             mazeMap = new Array(Game.map_grid.height); //maseMape: an array based on height
             for (var y = 0; y < Game.map_grid.height; y++) {
@@ -302,11 +307,10 @@ Game = {
                 }
             }
 
-            Crafty.e('PlayerCharacter').at(22, 32);
+            
         }
-        genMap();
+        //genMap();
         defineMaze();
-        drawMaze();
+        drawMaze();*/
     
-    }
-}
+
