@@ -6,32 +6,41 @@
                 - visited - if food is visted then change colour and add to visited counter
     - [ ] Populate background with trees and food
             - [x] if tree/food: change colour
-            - [ ] if tree/food: add in sprite
-            - [ ] if the character
+            - [x] if tree/food: add in sprite
+            - [ ] if the character hits tree: stop in that direction
     - [ ] Create a movable character
             - [x] add in general character with a change of colour
-            - [ ] add in sprite
+            - [x] add in sprite
             - [ ] moves consistantly through the centre of the path
-            - [ ] make character continuously movable?
-    - [ ] Create checkpoints (mushrooms) that will flag flashcard
+                ** OR -[ ] tile size increased to 32 and 32px/24px sprites used?
+                ** OR -[ ] game size remains the same and use 32px for character. Confine sprite to top and left of path
+            - [ ] decide on character movement
+                - [ ] keep movment as is but speed up character
+                - [ ] make character continuously movabl
+                - [ ] redraw sprite on each move
+                **try all of the above
+    - [x] Create checkpoints (mushrooms) that will flag flashcard
             - [x] add mushroom locations in a colour chage
-            - [ ] add in sprite
-            - [ ] set it so that if the character interacts with the mushroom a flashcard is revealed 
+            - [x] add in sprite
+            - [x] set it so that if the character interacts with the mushroom a flashcard is revealed 
     - [ ] Create sprites (death?) that:
         - [ ] move around autonomously
         - [ ] kill character
     - [ ] Correct mushroom guess changes who kills who 
     - [ ] Create "eatable" dots
-        - [ ] Small tiles (middle tile of path, alternate tiles) set to white
-        - [ ] As character moves through those squares colour is set to background colour
-        - [ ] Some way to check that all tiles have been changed to background?
-            - [ ] Value of white tiles stored somewhere
-            - [ ] As each tile is changed counter is incremented
-            - [ ] When counter == value
-    - [ ] Game is won when all dots are eaten
+        - [] Small tiles (middle tile of path, alternate tiles) set to white
+        - [x] As character moves through those squares colour is set to background colour
+        - [x] Some way to check that all tiles have been changed to background?
+            - [#] Value of white tiles stored somewhere
+            - [#] As each tile is changed counter is incremented
+            - [#] When counter == value
+            ##all of the above is irrelavent as Crafty can do this for me
+    - [x] Game is won when all dots are eaten
     - [ ] Game is lost if 
         - [ ] mushroom is toxic but guessed as an edible
         - [ ] sprite eats ya
+    -[ ] Make maze scalable (within reason)
+    -[ ] Can $text_css be incorporated into CSS file?
 
 */
 
@@ -44,9 +53,6 @@ function toggleVisibility(id) {
     }
 }
 
-function displayFlashCard() {
-    toggleVisibility("Mushroom-Question");  
-  }
 
 
 Game = {
@@ -54,8 +60,8 @@ Game = {
         width:  45,
         height: 43,
         tile: {
-          width:  14,
-          height: 14
+          width:  12,
+          height: 12
         }
       },
 
@@ -71,11 +77,13 @@ Game = {
     start: function() {
       // Start crafty and set a background color so that we can see it's working
         Crafty.init(Game.width(), Game.height());
-        Crafty.background('rgb(249, 223, 125');
+        Crafty.background('rgb(87, 109, 20');
 
-        Crafty.scene('Game');
+        Crafty.scene('Loading');
     }
 }
+
+$text_css = { 'font-size': '24px', 'font-family': 'Arial', 'color': 'white', 'text-align': 'center' } //can this be incorporated into CSS file?
 
         /*
         function genMap() {

@@ -16,19 +16,13 @@
 {% endblock %}
 
 {% block content %}
-<div id="Greeting">
-    <input id="okBtn" type="button" 
-    onclick="toggleVisibility('Mushroom-Question')"
-    value="HI!" /> <!--Note: This button will be removedand the Mushroom-Questionflashcard will be triggered by game play at some point-->
-</div>
 
 <div id="Game-Page">
-    
-
     <div id="maze-Container">
         <script>
             window.addEventListener('load', Game.start);
         </script>
+
     </div>
     <div id="Mushroom-Question">
         <div class="message">
