@@ -192,6 +192,7 @@ Crafty.scene('Game', function() {
             width: 15,
             height: 1
         }
+        
     ]
 
     for (let i = 0; i < trees.length; i++) {
@@ -239,24 +240,17 @@ Crafty.scene('Game', function() {
     this.show_flashcard = this.bind('MushroomEaten', function() {
         toggleVisibility("Mushroom-Question");
     });
-}, function() {
-this.unbind('MushroomEaten', this.show_flashcard);
-//console.log('Is this ever called?!') - look into bind and unbind
-});
-    /*
+
     this.show_victory = this.bind('FoodEaten', function() {
         console.log('Inside show_victory');
-        //console.log('food', Crafty('Food').length);
         if (!Crafty('Food').length) {
-            //console.log('Victory')
             Crafty.scene('Victory');
         }
     });
 }, function() {
-    this.unbind('FoodEaten', this.show_victory);
-    //console.log('Is this ever called?!') - look into bind and unbind
-});*/
-
+this.unbind('MushroomEaten', this.show_flashcard);
+this.unbind('FoodEaten', this.show_victory);
+});
 
 Crafty.scene('Victory', function() {
     Crafty.e('2D, DOM, Text')

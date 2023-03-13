@@ -54,7 +54,7 @@ Crafty.c('Mushroom', {
 Crafty.c('PlayerCharacter', {
     init: function() {
       this.requires('Actor, Fourway, Collision, spr_player, SpriteAnimation')
-        .fourway(4) //Fourway is a component that allows an entity to have it’s movement controlled by one of two four-direction control sets: W, A, S, and D or the Up, Left, Down, and Right keys
+        .fourway(100) //Fourway is a component that allows an entity to have it’s movement controlled by one of two four-direction control sets: W, A, S, and D or the Up, Left, Down, and Right keys
         .stopOnSolids()
         .onHit('Food', this.eatFood) //1. When the player hits a food square, this.eatFood is called
         .onHit('Mushroom', this.eatMushroom)
@@ -63,24 +63,15 @@ Crafty.c('PlayerCharacter', {
         .reel('PlayerMovingDown', 600, 0, 2, 2)
         .reel('PlayerMovingLeft', 600, 0, 3, 2);
         
-        this.animationSpeed = 10;
-        
-
-        
         this.bind('NewDirection', function(data){
-            console.log('data', data.x)
             if (data.x > 0 ) {
-                this.animate('PlayerMovingRight',this.animationSpeed, -1);
-                
+                this.animate('PlayerMovingRight', -1);
             } else if (data.x < 0) {
-                this.animate('PlayerMovingLeft',this.animationSpeed, -1);
-                
+                this.animate('PlayerMovingLeft', -1);
             } else if (data.y > 0) {
-                this.animate('PlayerMovingDown',this.animationSpeed, -1);
-                
+                this.animate('PlayerMovingDown', -1);
             } else if (data.y < 0) {
-                this.animate('PlayerMovingUp',this.animationSpeed, -1);
-                
+                this.animate('PlayerMovingUp', -1);
             } else {
                 this.pauseAnimation();
             }
@@ -92,15 +83,14 @@ Crafty.c('PlayerCharacter', {
         return this;
     },
 
-
     //Doesn't work??
     stopMovement: function() {
-        this._speed = 0;
-        if (this._movement) {
-            this.x -= this._movement.x; //play around with this later - what is it doing?
-            this.y -= this._movement.y;
-        }
-    },
+		this._speed = 0;
+		if (this._movement) {
+			this.x -= this._movement.x;
+			this.y -= this._movement.y;
+		}
+	},
 
     eatFood: function(data) { //where does this data come from?
         //console.log('Inside eat_Food');
